@@ -1,0 +1,8 @@
+.icon {
+  width: 35px;
+  height: 35px;
+}
+.icon:hover {
+  background-color: var(--main-color);
+  color: white;
+}

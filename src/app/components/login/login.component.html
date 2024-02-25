@@ -1,10 +1,11 @@
 <section class="w-75 mx-auto py-4">
-    <h1 class="py-4 text-center fw-semiblod">Login</h1>
+    <h1 class="py-4 text-center fw-semibold">Login</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="handleLoginForm()">
         <div class="mb-4">
             <label for="email" class="form-label">Email address</label>
             <input formControlName="email" type="email" class="form-control" id="email">
+
 
             <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
@@ -20,6 +21,7 @@
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
             <input formControlName="password" type="password" class="form-control" id="password">
+
 
             <!-- error message -->
             <div class="error-box " *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
