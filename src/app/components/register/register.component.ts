@@ -28,6 +28,6 @@ export class RegisterComponent {
     ]),
   });
   handleForm(): void {
-    console.log(this.registerForm);
+    console.log(this.registerForm.value);
   }
 }
