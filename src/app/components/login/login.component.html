@@ -1,5 +1,5 @@
 <section class="w-75 mx-auto py-4">
-    <h1 class="py-4 text-center">Login</h1>
+    <h1 class="py-4 text-center fw-semiblod">Login</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="handleLoginForm()">
         <div class="mb-4">
@@ -20,9 +20,25 @@
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
             <input formControlName="password" type="password" class="form-control" id="password">
+
+            <!-- error message -->
+            <div class="error-box " *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="loginForm.get('password')?.getError('required')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    Password is Required</p>
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="loginForm.get('password')?.getError('pattern')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    Password in valid</p>
+            </div>
         </div>
         <div class="btn-submit">
-            <button class="btn bg-main text-white">Login</button>
+            <button class="btn bg-main text-white" [disabled]="loginForm.invalid"><i *ngIf="isLoading"
+                    class="fa-solid fa-spinner fa-spin me-2"></i> Login</button>
         </div>
     </form>
+    <div class="error-msg mt-5 alert alert-danger p-3 rounded-2 text-center " *ngIf="msgError">
+        <span class="fw-medium">{{msgError}}</span>
+    </div>
 </section>

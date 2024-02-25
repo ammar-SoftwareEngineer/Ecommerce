@@ -4,7 +4,7 @@
     <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
 
         <div class="mb-4">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label ">Name</label>
             <input formControlName="name" type="text" class="form-control" id="name">
 
             <!-- error message -->
@@ -92,7 +92,8 @@
             </div>
         </div>
         <div class="btn-submit">
-            <button class="btn bg-main text-white" [disabled]="registerForm.invalid">Register</button>
+            <button class="btn bg-main text-white" [disabled]="registerForm.invalid"><i *ngIf="isLoading"
+                    class="fa-solid fa-spinner fa-spin me-2"></i> Register</button>
         </div>
     </form>
     <div class="error-msg mt-5 alert alert-danger p-3 rounded-2 text-center " *ngIf="msgError">
