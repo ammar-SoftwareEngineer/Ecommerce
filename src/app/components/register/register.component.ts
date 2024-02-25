@@ -16,11 +16,11 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^\[A-Z][a-z0-9]{6,20}$/),
+      Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/),
     ]),
     rePassword: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^\[A-Z][a-z0-9]{6,20}$/),
+      Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/),
     ]),
     phone: new FormControl('', [
       Validators.required,
