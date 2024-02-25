@@ -6,6 +6,8 @@
         <div class="mb-4">
             <label for="name" class="form-label">Name</label>
             <input formControlName="name" type="text" class="form-control" id="name">
+
+            <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
                 *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
                 <p *ngIf="registerForm.get('name')?.getError('required')"><i
@@ -23,6 +25,8 @@
         <div class="mb-4">
             <label for="email" class="form-label">Email address</label>
             <input formControlName="email" type="email" class="form-control" id="email">
+
+            <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
                 *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
                 <p *ngIf="registerForm.get('email')?.getError('required')"><i
@@ -36,6 +40,8 @@
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
             <input formControlName="password" type="password" class="form-control" id="password">
+
+            <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
                 *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
                 <p *ngIf="registerForm.get('password')?.getError('required')"><i
@@ -49,6 +55,8 @@
         <div class="mb-4">
             <label for="repassword" class="form-label">RePassword</label>
             <input formControlName="rePassword" type="password" class="form-control" id="repassword">
+
+            <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
                 *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
                 <p *ngIf="registerForm.get('rePassword')?.getError('required')"><i
@@ -62,6 +70,8 @@
         <div class="mb-4">
             <label for="phone" class="form-label">Phone</label>
             <input formControlName="phone" type="tel" class="form-control" id="phone">
+
+            <!-- error message -->
             <div class="error-box bg-danger-subtle rounded-3 p-3  mt-3 shadow-sm "
                 *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
                 <p *ngIf="registerForm.get('phone')?.getError('required')"><i
