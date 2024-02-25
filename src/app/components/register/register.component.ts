@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  constructor(private _AuthService: AuthService, private _Router: Router) {}
+
+  msgError: string = '';
+
   registerForm: FormGroup = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -27,7 +34,21 @@ export class RegisterComponent {
       Validators.pattern(/^01[0125][0-9]{8}$/),
     ]),
   });
+
   handleForm(): void {
-    console.log(this.registerForm.value);
+    if (this.registerForm.valid) {
+      this._AuthService.setRegister(this.registerForm.value).subscribe({
+        next: (response) => {
+          if (response.message == 'success') {
+            this._Router.navigate(['/login']);
+          }
+          console.log(response);
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err.error.message);
+          this.msgError = err.error.message;
+        },
+      });
+    }
   }
 }
