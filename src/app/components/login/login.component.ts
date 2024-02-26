@@ -30,6 +30,7 @@ export class LoginComponent {
         next: (response) => {
           this.isLoading = false;
           if (response.message == 'success') {
+            localStorage.setItem('token', response.token);
             this._Router.navigate(['/home']);
           }
         },
