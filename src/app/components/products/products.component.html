@@ -1,19 +1,21 @@
 <section class="py-5">
     <div class="container">
         <div class="row gy-5">
-            <div class="col-lg-3 col-md-3 " *ngFor="let item of products.slice(0,20)">
+            <div class="col-lg-3 col-md-4 " *ngFor="let item of products">
                 <div class="product shadow-sm rounded-4 p-4 ">
-                    <div class="image-contnet w-75 mx-auto rounded-2">
-                        <img class="img-fluid " [src]="item.imageCover" [alt]="item.title">
-                    </div>
+                    <div class="child-product" [routerLink]="['/details',item._id]">
+                        <div class="image-contnet w-75 mx-auto rounded-2">
+                            <img class="img-fluid " [src]="item.imageCover" [alt]="item.title">
+                        </div>
+                        <div class="text mt-3">
+                            <h2 class="font-sm  text-main">{{item.category.name}}</h2>
+                            <span class="fw-medium">{{item.title.split(' ').slice(0,2).join(' ')}}</span>
+                        </div>
+                        <div class="sale-rate mt-3 d-flex justify-content-between ">
+                            <p>{{item.price}} EGP</p>
+                            <span><i class="fas fa-star rating-color"></i> {{item.ratingsAverage}}</span>
+                        </div>
 
-                    <div class="text mt-3">
-                        <h2 class="font-sm  text-main">{{item.category.name}}</h2>
-                        <span class="fw-medium">{{item.title.split(' ').slice(0,2).join(' ')}}</span>
-                    </div>
-                    <div class="sale-rate mt-3 d-flex justify-content-between ">
-                        <p>{{item.price}} EGP</p>
-                        <span><i class="fas fa-star rating-color"></i> {{item.ratingsAverage}}</span>
                     </div>
                     <div class="btn-add">
                         <button class="btn-main w-100">Add Product </button>

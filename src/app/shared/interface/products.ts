@@ -1,4 +1,5 @@
 export interface Products {
+  _id: string;
   imageCover: string;
   title: string;
   price: number;
