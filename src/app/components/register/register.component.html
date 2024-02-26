@@ -5,10 +5,11 @@
 
         <div class="mb-4">
             <label for="name" class="form-label ">Name</label>
-            <input formControlName="name" type="text" class="form-control" id="name">
+            <input #inputName formControlName="name" type="text" class="form-control" id="name">
 
             <!-- error message -->
-            <div class="error-box " *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched">
+            <div class="error-box "
+                *ngIf="registerForm.get('name')?.errors && (registerForm.get('name')?.touched || inputName.value.length>0)">
                 <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('name')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
@@ -26,10 +27,11 @@
         </div>
         <div class="mb-4">
             <label for="email" class="form-label">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="email">
+            <input #inputEmail formControlName="email" type="email" class="form-control" id="email">
 
             <!-- error message -->
-            <div class="error-box  " *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+            <div class="error-box  "
+                *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.touched || inputEmail.value.length>0)">
                 <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('email')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
@@ -40,13 +42,15 @@
                     Email in valid</p>
             </div>
         </div>
+
+        <!-- start password -->
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
-            <input formControlName="password" type="password" class="form-control" id="password">
+            <input #inputPassword formControlName="password" type="password" class="form-control" id="password">
 
             <!-- error message -->
             <div class="error-box "
-                *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+                *ngIf="registerForm.get('password')?.errors && (registerForm.get('password')?.touched || inputPassword.value.length>0)">
                 <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('password')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
@@ -57,13 +61,16 @@
                     Password in valid</p>
             </div>
         </div>
+        <!-- end password -->
+
+
         <div class="mb-4">
             <label for="repassword" class="form-label">RePassword</label>
-            <input formControlName="rePassword" type="password" class="form-control" id="repassword">
+            <input #inputRePassword formControlName="rePassword" type="password" class="form-control" id="repassword">
 
             <!-- error message -->
             <div class="error-box "
-                *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
+                *ngIf="registerForm.get('rePassword')?.errors && (registerForm.get('rePassword')?.touched || inputRePassword.value.length>0)">
                 <p class=" alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('rePassword')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
@@ -77,10 +84,11 @@
         </div>
         <div class="mb-4">
             <label for="phone" class="form-label">Phone</label>
-            <input formControlName="phone" type="tel" class="form-control" id="phone">
+            <input #inputPhone formControlName="phone" type="tel" class="form-control" id="phone">
 
             <!-- error message -->
-            <div class="error-box " *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+            <div class="error-box "
+                *ngIf="registerForm.get('phone')?.errors && (registerForm.get('phone')?.touched || inputPhone.value.length>0) ">
                 <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('phone')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>

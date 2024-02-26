@@ -48,8 +48,9 @@
                     class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
                     <i class="fab fa-youtube"></i>
                 </li>
-                <li class="nav-item">
-                    <span class="cursor-pointer p-2" routerLink="signout" routerLinkActive="active-link">SignOut</span>
+                <li class="nav-item sign">
+                    <span class="cursor-pointer p-2" routerLink="signout" routerLinkActive="active-link"
+                        (click)="logOutUser()">SignOut</span>
                 </li>
             </ul>
 

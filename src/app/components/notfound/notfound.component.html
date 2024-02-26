@@ -1,1 +1,18 @@
-<p>notfound works!</p>
+<app-nav-blank></app-nav-blank>
+<router-outlet></router-outlet>
+<div class="section py-5">
+    <div class="container">
+        <div class="content-notfound d-flex justify-content-center align-items-center flex-column">
+            <div class="image mb-5">
+                <img class="img-fluid" src="./assets/images/error.svg" alt="">
+            </div>
+
+            <div class="btn-back mt-5">
+                <button class="btn-main" (click)="navigateBack()">Go Back</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<app-footer></app-footer>
