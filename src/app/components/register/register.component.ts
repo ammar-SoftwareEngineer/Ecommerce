@@ -43,6 +43,7 @@ export class RegisterComponent {
       [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)],
     ],
   });
+
   handleForm(): void {
     if (this.registerForm.valid) {
       this.isLoading = true;
