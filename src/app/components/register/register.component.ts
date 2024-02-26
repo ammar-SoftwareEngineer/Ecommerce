@@ -47,22 +47,21 @@ export class RegisterComponent {
   registerForm: FormGroup = this._FormBuilder.group({
     name: [
       '',
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(20),
+      [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
     ],
     email: ['', [Validators.required, Validators.email]],
     password: [
       '',
-      Validators.required,
-      Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/),
+      [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)],
     ],
     rePassword: [
       '',
-      Validators.required,
-      Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/),
+      [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)],
     ],
-    phone: ['', Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)],
+    phone: [
+      '',
+      [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)],
+    ],
   });
   handleForm(): void {
     if (this.registerForm.valid) {
@@ -80,6 +79,8 @@ export class RegisterComponent {
           this.msgError = err.error.message;
         },
       });
+    } else {
+      this.registerForm.markAllAsTouched();
     }
   }
 }
