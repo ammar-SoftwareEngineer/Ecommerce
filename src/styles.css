@@ -39,9 +39,8 @@ a:hover {
 }
 
 .product {
-  border-radius: 5px;
-  border: solid 1px var(--main-color);
-  transition: box-shadow 0.5s;
+  transition: linear 0.2s;
+  /* transition: box-shadow 0.5s; */
   overflow: hidden;
 }
 
@@ -50,7 +49,7 @@ a:hover {
 }
 
 .font-sm {
-  font-size: 12px;
+  font-size: 14px;
 }
 .text-main {
   color: var(--main-color);
@@ -82,4 +81,17 @@ a:hover {
 }
 .btn-main:hover {
   background-color: #11bd11;
+}
+
+.product .btn-add {
+  position: relative;
+  transition: linear 0.3s;
+  bottom: -50px;
+  opacity: 0;
+  height: 0;
+}
+.product:hover .btn-add {
+  bottom: 0;
+  opacity: 1;
+  height: 100%;
 }
