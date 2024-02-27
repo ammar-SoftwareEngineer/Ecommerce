@@ -23,18 +23,18 @@
         </div>
     </div>
 </div>
-<div class="slider-dynamic">
+<div class="slider-dynamic py-3">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <owl-carousel-o [options]="customOptions">
-                    <ng-container *ngFor="let img of products.category.image">
-                        <ng-template carouselSlide>
-                            <img class="w-100" height="500px" [src]="products" alt="">
-                        </ng-template>
-                    </ng-container>
-                </owl-carousel-o>
-            </div>
+        <div class="row g-0">
+            <owl-carousel-o [options]="slideDynamic">
+                <ng-container *ngFor="let img of products">
+                    <ng-template carouselSlide>
+                        <div class="col-md-12">
+                            <img class="w-100" height="250px" [src]="img.image" [alt]="img.name">
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
         </div>
     </div>
 </div>

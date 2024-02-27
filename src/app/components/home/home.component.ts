@@ -11,12 +11,12 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 })
 export class HomeComponent {
   constructor(private _ProductsService: ProductsService) {}
-  products: Products = {} as Products;
+  products: Products[] = [];
   ngOnInit(): void {
-    this._ProductsService.getAllProducts().subscribe({
+    this._ProductsService.getAllCategories().subscribe({
       next: (response) => {
         this.products = response.data;
-        // console.log(this.products);
+        console.log(this.products);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
@@ -29,7 +29,7 @@ export class HomeComponent {
     touchDrag: false,
     pullDrag: false,
     dots: true,
-    navSpeed: 700,
+    navSpeed: 500,
     navText: ['', ''],
     responsive: {
       0: {
@@ -49,5 +49,35 @@ export class HomeComponent {
       },
     },
     // nav: true,
+  };
+  slideDynamic: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 500,
+    navText: ['', ''],
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 3,
+      },
+      400: {
+        items: 3,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 5,
+      },
+      1200: {
+        items: 6,
+      },
+    },
+    nav: true,
   };
 }
