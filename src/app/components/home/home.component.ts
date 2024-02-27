@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Products } from 'src/app/shared/interface/products';
+import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +10,25 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  constructor(private _ProductsService: ProductsService) {}
+  products: Products = {} as Products;
+  ngOnInit(): void {
+    this._ProductsService.getAllProducts().subscribe({
+      next: (response) => {
+        this.products = response.data;
+        // console.log(this.products);
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err);
+      },
+    });
+  }
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -32,6 +48,6 @@ export class HomeComponent {
         items: 1,
       },
     },
-    nav: true,
+    // nav: true,
   };
 }

@@ -38,7 +38,7 @@ export class DetailsComponent implements OnInit {
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -55,6 +55,6 @@ export class DetailsComponent implements OnInit {
         items: 1,
       },
     },
-    nav: true,
+    // nav: true,
   };
 }

@@ -11,4 +11,5 @@ export interface Products {
 
 interface Category {
   name: string;
+  image: string;
 }

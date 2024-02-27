@@ -15,7 +15,7 @@ export class ProductsComponent {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.data;
-        // console.log(this.product);
+        // console.log(this.products);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
