@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Products } from 'src/app/shared/interface/products';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
@@ -80,4 +81,6 @@ export class HomeComponent {
     },
     nav: true,
   };
+
+  searchTerm: string = '';
 }

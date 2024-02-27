@@ -1,0 +1,11 @@
+.msg-success {
+  transition: all 0.5s;
+}
+.layer {
+  background-color: rgba(0, 0, 0, 0.219);
+  height: 100vh;
+  width: 100%;
+}
+.card {
+  width: 350px;
+}

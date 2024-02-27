@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5 position-relative">
     <div class="container">
         <div class="row gy-5">
             <div class="col-lg-3 col-md-4 " *ngFor="let item of products">
@@ -8,8 +8,8 @@
                             <img class="img-fluid " [src]="item.imageCover" [alt]="item.title">
                         </div>
                         <div class="text mt-3">
-                            <h2 class="font-sm  text-main">{{item.category.name}}</h2>
-                            <span class="fw-medium">{{item.title.split(' ').slice(0,2).join(' ')}}</span>
+                            <h2 class="font-sm fw-normal text-main">{{item.category.name}}</h2>
+                            <span class="fw-medium font-sm">{{item.title.split(' ').slice(0,2).join(' ')}}</span>
                         </div>
                         <div class="sale-rate mt-3 d-flex justify-content-between ">
                             <p>{{item.price}} EGP</p>
@@ -18,10 +18,24 @@
 
                     </div>
                     <div class="btn-add">
-                        <button class="btn-main w-100">Add Product </button>
+                        <button (click)="addCart(item._id)" class="btn-main w-100">Add To Cart</button>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <div class="msg-success position-fixed top-0 start-0 w-100 z-3" *ngIf="msgCard">
+        <div class="layer   d-flex justify-content-center align-items-center">
+            <div class="container">
+                <div class="card text-center rounded-3 py-4  mx-auto">
+                    <i class="fa-solid fa-circle-check fa-bounce fa-3x text-main"></i>
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Success</h5>
+                        <p class="card-text">Product added successfully to your Cart</p>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
