@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Products } from 'src/app/shared/interface/products';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
@@ -22,6 +23,7 @@ export class DetailsComponent implements OnInit {
         this._ProductsService.getIdProducts(idProducts).subscribe({
           next: (response) => {
             this.productDetails = response.data;
+            console.log(this.productDetails);
           },
           error: (err: HttpErrorResponse) => {
             console.log(err);
@@ -30,4 +32,29 @@ export class DetailsComponent implements OnInit {
       },
     });
   }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 1,
+      },
+      740: {
+        items: 1,
+      },
+      940: {
+        items: 1,
+      },
+    },
+    nav: true,
+  };
 }
