@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +47,7 @@ import { ToastrModule } from 'ngx-toastr';
     CarouselModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-center-center',
-      preventDuplicates: true,
-    }),
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
