@@ -37,7 +37,7 @@ export class ProductsComponent {
           detail: 'Success',
           summary: 'Product added successfully to your cart',
           duration: 5000,
-          position: 'topCenter',
+          position: 'topRight',
         });
       },
     });
