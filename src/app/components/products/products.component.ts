@@ -36,10 +36,19 @@ export class ProductsComponent {
         this._NgToastService.success({
           detail: 'Success',
           summary: 'Product added successfully to your cart',
-          duration: 5000,
+          duration: 3000,
+          position: 'topRight',
+        });
+      },
+      error: (err: HttpErrorResponse) => {
+        this._NgToastService.error({
+          detail: 'ERROR',
+          summary: 'There is a problem adding the product in cart',
           position: 'topRight',
         });
       },
     });
   }
+
+  searchTerm: string = '';
 }
