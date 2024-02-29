@@ -1,17 +1,22 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/shared/interface/cart';
-import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
-
+import { NgToastService } from 'ng-angular-popup';
+import { count } from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  constructor(private _CartService: CartService) {}
+  constructor(
+    private _CartService: CartService,
+    private _NgToastService: NgToastService
+  ) {}
   productCart: Cart = {} as Cart;
   cartDetails: Cart[] = [];
+
   ngOnInit(): void {
     this._CartService.getUserCart().subscribe({
       next: (response) => {
@@ -20,5 +25,32 @@ export class CartComponent implements OnInit {
         console.log(this.cartDetails);
       },
     });
+  }
+  deleteProduct(productId: string): void {
+    this._CartService.deleteProductCart(productId).subscribe({
+      next: (response) => {
+        this.cartDetails = response.data.products;
+        this._NgToastService.success({
+          detail: 'Success',
+          summary: 'Product Remove successfully to your cart',
+          duration: 3000,
+          position: 'topRight',
+        });
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err);
+      },
+    });
+  }
+
+  changeCount(id: string, countPro: number): void {
+    if (countPro >= 1) {
+      this._CartService.updateProductCart(id, countPro).subscribe({
+        next: (response) => {
+          this.cartDetails = response.data.products;
+          console.log(this.cartDetails);
+        },
+      });
+    }
   }
 }

@@ -28,7 +28,6 @@ export class ProductsComponent {
       },
     });
   }
-  msgCard: boolean = false;
   addCart(id: string): void {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {

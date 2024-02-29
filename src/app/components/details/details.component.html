@@ -23,9 +23,10 @@
                     <span><i class="fas fa-star rating-color"></i> {{productDetails.ratingsAverage}}</span>
                 </div>
                 <div class="btn-add mt-3">
-                    <button class="btn-main w-100">Add Product </button>
+                    <button (click)="addCart(productDetails._id)" class="btn-main w-100">Add To Cart </button>
                 </div>
             </div>
         </div>
     </div>
+    <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
 </section>

@@ -44,7 +44,9 @@ a:hover {
   /* transition: box-shadow 0.5s; */
   overflow: hidden;
 }
-
+.border-main {
+  border-color: var(--main-color);
+}
 .product:hover {
   box-shadow: 0 0 10px #11bd1168;
 }

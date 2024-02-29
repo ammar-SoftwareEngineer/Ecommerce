@@ -8,4 +8,5 @@ export interface Cart {
 interface Product {
   title: string;
   imageCover: string;
+  _id: string;
 }
