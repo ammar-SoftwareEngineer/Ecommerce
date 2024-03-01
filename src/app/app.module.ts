@@ -17,7 +17,7 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgToastModule } from 'ng-angular-popup';
@@ -25,6 +25,9 @@ import { SearchPipe } from './shared/search.pipe';
 import { ProductshomeComponent } from './components/productshome/productshome.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { MyhttpInterceptor } from './shared/interceptors/myhttp.interceptor';
+import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,13 +59,17 @@ import { ToastrModule } from 'ngx-toastr';
     NgToastModule,
     NgxPaginationModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 2000,
       positionClass: 'toast-top-right',
       preventDuplicates: false,
       progressBar: true,
     }),
+    NgxSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyhttpInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

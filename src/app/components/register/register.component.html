@@ -74,9 +74,9 @@
                 <p class=" alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
                     *ngIf="registerForm.get('rePassword')?.getError('required')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
-                    Password is Required</p>
+                    RePassword is Required</p>
                 <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
-                    *ngIf="registerForm.get('rePassword')?.getError('pattern')"><i
+                    *ngIf="registerForm.get('rePassword')?.getError('mismatch')"><i
                         class="fa-regular fa-circle-xmark text-danger"></i>
                     Password confirmation is incorrect</p>
             </div>

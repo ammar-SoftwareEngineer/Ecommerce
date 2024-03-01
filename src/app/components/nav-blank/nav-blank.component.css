@@ -15,3 +15,6 @@
   width: 25px;
   height: 25px;
 }
+.dropdown-menu {
+  width: fit-content;
+}

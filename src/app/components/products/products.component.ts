@@ -18,7 +18,7 @@ export class ProductsComponent {
   pageSize: number = 0;
   currentPage: number = 1;
   total: number = 0;
-
+  isLoading: boolean = false;
   products: Products[] = [];
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
@@ -37,7 +37,6 @@ export class ProductsComponent {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {
         console.log(response);
-
         this._ToastrService.success('Add product to Cart', 'Success', {
           progressAnimation: 'increasing',
         });

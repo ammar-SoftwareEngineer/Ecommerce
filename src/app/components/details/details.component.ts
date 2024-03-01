@@ -5,7 +5,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute,
     private _ProductsService: ProductsService,
     private _CartService: CartService,
-    private _NgToastService: NgToastService
+    private _ToastrService: ToastrService
   ) {}
   productDetails: Products = {} as Products;
   ngOnInit(): void {
@@ -40,18 +40,13 @@ export class DetailsComponent implements OnInit {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {
         console.log(response);
-        this._NgToastService.success({
-          detail: 'Success',
-          summary: 'Product added successfully to your cart',
-          duration: 3000,
-          position: 'topRight',
+        this._ToastrService.success('Add product to Cart', 'Success', {
+          progressAnimation: 'increasing',
         });
       },
       error: (err: HttpErrorResponse) => {
-        this._NgToastService.error({
-          detail: 'ERROR',
-          summary: 'There is a problem adding the product in cart',
-          position: 'topRight',
+        this._ToastrService.error('Error', '', {
+          progressAnimation: 'increasing',
         });
       },
     });

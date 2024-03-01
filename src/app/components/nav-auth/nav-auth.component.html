@@ -7,38 +7,56 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-md-flex justify-content-md-center align-items-lg-center gap-3">
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-instagram"></i>
+            <ul
+                class="navbar-nav ms-auto mt-4 mt-lg-0 mb-2 mb-lg-0 d-md-flex justify-content-md-center align-items-lg-center gap-lg-3 gap-4 p-0-md p-2">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i
+                            class="fa-solid fa-user fs-3 text-success"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item ">
+                            <span class="cursor-pointer p-2" routerLink="login"
+                                routerLinkActive="active-link">Login</span>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <span class="cursor-pointer p-2" routerLink="register"
+                                routerLinkActive="active-link">Register</span>
+                        </li>
+
+                    </ul>
                 </li>
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-facebook"></i>
+                <li class="nav-item dropdown">
+                    <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i
+                            class="fa-solid fa-share-nodes fs-3"></i></a>
+                    <ul class="dropdown-menu">
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-instagram"></i>
+                        </li>
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-facebook"></i>
+                        </li>
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-tiktok"></i>
+                        </li>
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-twitter"></i>
+                        </li>
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-linkedin"></i>
+                        </li>
+                        <li
+                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
+                            <i class="fab fa-youtube"></i>
+                        </li>
+
+                    </ul>
                 </li>
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-tiktok"></i>
-                </li>
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-twitter"></i>
-                </li>
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-linkedin"></i>
-                </li>
-                <li
-                    class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                    <i class="fab fa-youtube"></i>
-                </li>
-                <li class="nav-item ">
-                    <span class="cursor-pointer p-2" routerLink="login" routerLinkActive="active-link">Login</span>
-                </li>
-                <li class="nav-item">
-                    <span class="cursor-pointer p-2" routerLink="register"
-                        routerLinkActive="active-link">Register</span>
-                </li>
+
+
             </ul>
 
         </div>

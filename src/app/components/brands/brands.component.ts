@@ -21,7 +21,6 @@ export class BrandsComponent implements OnInit {
         this.pageSize = response.metadata.limit;
         this.currentPage = response.metadata.currentPage;
         this.total = response.results;
-        console.log(this.products);
       },
     });
   }

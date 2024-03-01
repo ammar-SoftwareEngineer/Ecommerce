@@ -7,3 +7,6 @@
   background-color: var(--main-color);
   color: white;
 }
+.dropdown-menu {
+  width: 20px !important;
+}

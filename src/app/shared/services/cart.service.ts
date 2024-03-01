@@ -9,45 +9,29 @@ export class CartService {
 
   cartNumber: BehaviorSubject<number> = new BehaviorSubject(0);
 
-  headers: any = { token: localStorage.getItem('token') };
-
   AddProductCart(productId: string): Observable<any> {
     return this._HttpClient.post(
       `https://ecommerce.routemisr.com/api/v1/cart`,
-      { productId: productId },
-      {
-        headers: this.headers,
-      }
+      { productId: productId }
     );
   }
   getUserCart(): Observable<any> {
-    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`, {
-      headers: this.headers,
-    });
+    return this._HttpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`);
   }
   deleteProductCart(id: string): Observable<any> {
     return this._HttpClient.delete(
-      `https://ecommerce.routemisr.com/api/v1/cart/${id}`,
-      {
-        headers: this.headers,
-      }
+      `https://ecommerce.routemisr.com/api/v1/cart/${id}`
     );
   }
   updateProductCart(productId: string, count: number): Observable<any> {
     return this._HttpClient.put(
       `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
-      { count: count },
-      {
-        headers: this.headers,
-      }
+      { count: count }
     );
   }
   clearCart(): Observable<any> {
     return this._HttpClient.delete(
-      `https://ecommerce.routemisr.com/api/v1/cart`,
-      {
-        headers: this.headers,
-      }
+      `https://ecommerce.routemisr.com/api/v1/cart`
     );
   }
 }
