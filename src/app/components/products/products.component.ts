@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
-import { NgToastService } from 'ng-angular-popup';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,7 +13,7 @@ export class ProductsComponent {
   constructor(
     private _ProductsService: ProductsService,
     private _CartService: CartService,
-    private _NgToastService: NgToastService
+    private _ToastrService: ToastrService
   ) {}
   pageSize: number = 0;
   currentPage: number = 1;
@@ -37,19 +37,15 @@ export class ProductsComponent {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {
         console.log(response);
-        this._NgToastService.success({
-          detail: 'Success',
-          summary: 'Product added successfully to your cart',
-          duration: 3000,
-          position: 'topRight',
+
+        this._ToastrService.success('Add product to Cart', 'Success', {
+          progressAnimation: 'increasing',
         });
         this._CartService.cartNumber.next(response.numOfCartItems);
       },
       error: (err: HttpErrorResponse) => {
-        this._NgToastService.error({
-          detail: 'ERROR',
-          summary: 'There is a problem adding the product in cart',
-          position: 'topRight',
+        this._ToastrService.error('Error', '', {
+          progressAnimation: 'increasing',
         });
       },
     });

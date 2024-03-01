@@ -24,6 +24,7 @@ import { NgToastModule } from 'ng-angular-popup';
 import { SearchPipe } from './shared/search.pipe';
 import { ProductshomeComponent } from './components/productshome/productshome.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     NgToastModule,
     NgxPaginationModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+      progressBar: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/shared/interface/cart';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { NgToastService } from 'ng-angular-popup';
-import { count } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,7 +12,7 @@ import { count } from 'rxjs';
 export class CartComponent implements OnInit {
   constructor(
     private _CartService: CartService,
-    private _NgToastService: NgToastService
+    private _ToastrService: ToastrService
   ) {}
   productCart: Cart = {} as Cart;
   cartDetails: Cart[] = [];
@@ -32,11 +32,9 @@ export class CartComponent implements OnInit {
       next: (response) => {
         this.productCart = response.data;
         this.cartDetails = response.data.products;
-        this._NgToastService.success({
-          detail: 'Success',
-          summary: 'Product Remove successfully to your cart',
-          duration: 3000,
-          position: 'topRight',
+        this._ToastrService.success('Remove product to Cart', 'Success', {
+          progressAnimation: 'decreasing',
+          timeOut: 600,
         });
         this._CartService.cartNumber.next(response.numOfCartItems);
       },
@@ -61,12 +59,9 @@ export class CartComponent implements OnInit {
       next: (response) => {
         if (response.message == 'success') {
           this.cartDetails = response.data;
-
-          this._NgToastService.success({
-            detail: 'Success',
-            summary: 'Product Remove All Products successfully to your cart',
-            duration: 2000,
-            position: 'topRight',
+          this._ToastrService.success('Remove All product to Cart', 'Success', {
+            progressAnimation: 'decreasing',
+            timeOut: 1200,
           });
           this._CartService.cartNumber.next(response.numOfCartItems);
         }
