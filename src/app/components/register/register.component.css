@@ -1,1 +1,10 @@
-
+@media (min-width: 992px) {
+  section {
+    width: 50% !important;
+  }
+}
+@media (max-width: 991px) {
+  section {
+    width: 90% !important;
+  }
+}

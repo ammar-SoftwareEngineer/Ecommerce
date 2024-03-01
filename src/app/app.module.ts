@@ -29,6 +29,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MyhttpInterceptor } from './shared/interceptors/myhttp.interceptor';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     SearchPipe,
     ProductshomeComponent,
     PaymentComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,

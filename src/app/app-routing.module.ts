@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
+import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
+      { path: 'forgetpassword', component: ForgetpasswordComponent },
+      { path: 'resetpassword', component: ResetpasswordComponent },
       { path: 'register', component: RegisterComponent },
     ],
   },

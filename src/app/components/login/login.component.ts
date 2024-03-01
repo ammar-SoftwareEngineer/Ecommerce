@@ -31,7 +31,6 @@ export class LoginComponent {
       [Validators.required, Validators.pattern(/^[A-Z][a-z0-9]{6,10}$/)],
     ],
   });
-
   handleLoginForm(): void {
     if (this.loginForm.valid) {
       this.isLoading = true;

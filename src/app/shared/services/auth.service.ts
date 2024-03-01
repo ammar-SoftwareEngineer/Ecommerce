@@ -26,4 +26,23 @@ export class AuthService {
     localStorage.removeItem('token');
     this._Router.navigate(['/login']);
   }
+
+  forgetPassword(email: object): Observable<any> {
+    return this._HttpClient.post(
+      `https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`,
+      email
+    );
+  }
+  verifyReset(resetCode: object): Observable<any> {
+    return this._HttpClient.post(
+      `https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode`,
+      resetCode
+    );
+  }
+  resetPassword(userData: object): Observable<any> {
+    return this._HttpClient.put(
+      `https://ecommerce.routemisr.com/api/v1/auth/resetPassword`,
+      userData
+    );
+  }
 }
