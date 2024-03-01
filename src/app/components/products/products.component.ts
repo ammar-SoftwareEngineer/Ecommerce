@@ -43,7 +43,7 @@ export class ProductsComponent {
           duration: 3000,
           position: 'topRight',
         });
-        this._CartService.cartNumber.next(response.namOfCartItems);
+        this._CartService.cartNumber.next(response.numOfCartItems);
       },
       error: (err: HttpErrorResponse) => {
         this._NgToastService.error({

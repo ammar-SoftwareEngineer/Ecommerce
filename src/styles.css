@@ -75,6 +75,20 @@ a:hover {
   cursor: pointer;
   transition: background-color 0.5s;
 }
+.btn-outline-main {
+  color: var(--main-color);
+  background-color: transparent;
+  padding: 7px 20px;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-outline-main:hover {
+  color: white;
+  background-color: var(--main-color);
+  cursor: pointer;
+}
 .btn-main:disabled {
   cursor: not-allowed;
   background-color: #ccc;

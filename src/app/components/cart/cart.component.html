@@ -1,14 +1,14 @@
-<section class="py-5 " *ngIf="cartDetails">
+<section class="py-5 " *ngIf="cartDetails&&cartDetails.length > 0;else msg">
     <div class="container">
         <div class="content-cart w-75 mx-auto">
-            <div class="head-cart d-flex justify-content-between align-items-center">
+            <div class="head-cart d-flex justify-content-between ">
                 <div class="title-count d-flex  mb-3 flex-column">
                     <h1>Shop Cart</h1>
                     <span class="text-main fs-4">Total Price {{productCart.totalCartPrice | currency:' EGP'}}</span>
                 </div>
-                <button class="btn btn-outline-success py-3 px-4 fs-6" (click)="deleteAllCart()">
+                <button class=" btn-outline-main py-md-3 px-md-4 h-100 fs-6" (click)="deleteAllCart()">
                     <i class="fa-solid fa-trash-can me-1"></i>
-                    Clear Cart
+                    <span>Clear Cart</span>
                 </button>
             </div>
 
@@ -31,14 +31,18 @@
                         class="btns d-flex gap-lg-5 gap-md-4 flex-md-column align-items-center justify-content-between justify-content-md-start">
                         <div class="counter d-flex align-items-center gap-4">
                             <button (click)="changeCount(item.product._id,item.count+1)"
-                                class="btn btn-outline-secondary py-1 px-2"><i class="fa-solid fa-plus"></i></button>
+                                class="btn btn-outline-success py-1 px-2"><i class="fa-solid fa-plus"></i></button>
                             <span>{{item.count}}</span>
                             <button (click)="changeCount(item.product._id,item.count-1)"
-                                class="btn btn-outline-secondary py-1 px-2"> <i class="fa-solid fa-minus"></i></button>
+                                class="btn btn-outline-success py-1 px-2"> <i class="fa-solid fa-minus"></i></button>
                         </div>
                         <div class="btn-remove">
-                            <button class="btn-main" (click)="deleteProduct(item.product._id)"><i
-                                    class="fa-solid fa-trash-can me-1"></i> Remove</button>
+                            <button class="btn-outline-main" (click)="deleteProduct(item.product._id)"><i
+                                    class="fa-solid fa-trash-can me-1"></i>
+                                <span>
+                                    Remove
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -46,7 +50,8 @@
         </div>
     </div>
     <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
+
 </section>
-<div *ngIf="deleteAllCart()">
-    <h2 class="text-center">{{msg}}</h2>
-</div>
+<ng-template #msg>
+    <h2 class="text-center">Your Cart is Empty</h2>
+</ng-template>

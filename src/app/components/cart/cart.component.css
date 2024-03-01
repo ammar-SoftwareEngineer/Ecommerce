@@ -1,1 +1,8 @@
-
+@media (max-width: 768px) {
+  .btn-remove button span {
+    display: none;
+  }
+  .head-cart button span {
+    display: none;
+  }
+}

@@ -16,7 +16,8 @@ export class CartComponent implements OnInit {
   ) {}
   productCart: Cart = {} as Cart;
   cartDetails: Cart[] = [];
-  msg: string = 'Your Cart Is Empty';
+  msg: string = 'Your Cart Empty';
+
   ngOnInit(): void {
     this._CartService.getUserCart().subscribe({
       next: (response) => {
@@ -38,9 +39,6 @@ export class CartComponent implements OnInit {
           position: 'topRight',
         });
         this._CartService.cartNumber.next(response.numOfCartItems);
-        if (response.data.products.length >= 0) {
-          this.deleteAllCart();
-        }
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
@@ -65,8 +63,8 @@ export class CartComponent implements OnInit {
           this.cartDetails = response.data;
           this._NgToastService.success({
             detail: 'Success',
-            summary: 'Product Remove successfully to your cart',
-            duration: 3000,
+            summary: 'Product Remove All Products successfully to your cart',
+            duration: 2000,
             position: 'topRight',
           });
           this._CartService.cartNumber.next(response.numOfCartItems);
