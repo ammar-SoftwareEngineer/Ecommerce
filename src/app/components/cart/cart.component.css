@@ -5,4 +5,7 @@
   .head-cart button span {
     display: none;
   }
+  .check-out button {
+    width: 100%;
+  }
 }

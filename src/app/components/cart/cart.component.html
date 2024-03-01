@@ -4,7 +4,7 @@
             <div class="head-cart d-flex justify-content-between ">
                 <div class="title-count d-flex  mb-3 flex-column">
                     <h1>Shop Cart</h1>
-                    <span class="text-main fs-4">Total Price {{productCart.totalCartPrice | currency:' EGP'}}</span>
+                    <span class="text-main fs-4">Total Price {{productCart.totalCartPrice|currency:' EGP'}}</span>
                 </div>
                 <button class=" btn-outline-main py-md-3 px-md-4 h-100 fs-6" (click)="deleteAllCart()">
                     <i class="fa-solid fa-trash-can me-1"></i>
@@ -22,7 +22,7 @@
                         <div
                             class="price d-flex align-items-md-baseline align-items-center flex-md-column justify-content-between gap-md-2  ">
                             <h2 class="fs-6 pb-md-2 pb-0">{{item.product.title}}</h2>
-                            <span class="text-main pb-2 ">{{item.price | currency:'EGP'}}</span>
+                            <span class="text-main pb-2 ">{{item.price*item.count| currency:'EGP'}}</span>
                         </div>
                     </div>
                 </div>
@@ -31,10 +31,10 @@
                         class="btns d-flex gap-lg-5 gap-md-4 flex-md-column align-items-center justify-content-between justify-content-md-start">
                         <div class="counter d-flex align-items-center gap-4">
                             <button (click)="changeCount(item.product._id,item.count+1)"
-                                class="btn btn-outline-success py-1 px-2"><i class="fa-solid fa-plus"></i></button>
+                                class=" btn-outline-main py-1 px-2"><i class="fa-solid fa-plus"></i></button>
                             <span>{{item.count}}</span>
                             <button (click)="changeCount(item.product._id,item.count-1)"
-                                class="btn btn-outline-success py-1 px-2"> <i class="fa-solid fa-minus"></i></button>
+                                class=" btn-outline-main py-1 px-2"> <i class="fa-solid fa-minus"></i></button>
                         </div>
                         <div class="btn-remove">
                             <button class="btn-outline-main" (click)="deleteProduct(item.product._id)"><i
@@ -47,7 +47,13 @@
                     </div>
                 </div>
             </div>
+            <div class="check-out mt-5">
+                <button class="btn-outline-main py-2">
+                    <i class="fa-regular fa-credit-card me-2"></i> Check Out
+                </button>
+            </div>
         </div>
+
     </div>
     <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
 

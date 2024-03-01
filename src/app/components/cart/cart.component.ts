@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   productCart: Cart = {} as Cart;
   cartDetails: Cart[] = [];
   msg: string = 'Your Cart Empty';
-
+  totalPrice: Cart[] = [];
   ngOnInit(): void {
     this._CartService.getUserCart().subscribe({
       next: (response) => {
@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
       this._CartService.updateProductCart(id, countPro).subscribe({
         next: (response) => {
           this.cartDetails = response.data.products;
-          console.log(this.cartDetails);
+          this.productCart = response.data;
         },
       });
     }
@@ -61,6 +61,7 @@ export class CartComponent implements OnInit {
       next: (response) => {
         if (response.message == 'success') {
           this.cartDetails = response.data;
+
           this._NgToastService.success({
             detail: 'Success',
             summary: 'Product Remove All Products successfully to your cart',
