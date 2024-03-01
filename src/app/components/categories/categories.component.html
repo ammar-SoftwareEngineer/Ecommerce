@@ -1,8 +1,11 @@
-<section>
+<section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-
+        <div class="row gy-3">
+            <div class="col-lg-4 col-md-6" *ngFor="let img of products">
+                <div class="card shadow-sm bg-white rounded-3 pb-3 ">
+                    <img class="w-100 rounded-top-3" height="400px" [src]="img.image" [alt]="img.name">
+                    <h2 class="fs-5 mt-4 text-center">{{img.name}}</h2>
+                </div>
             </div>
         </div>
     </div>

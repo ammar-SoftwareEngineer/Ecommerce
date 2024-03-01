@@ -4,18 +4,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {
+export class CategoriresService {
   constructor(private _HttpClient: HttpClient) {}
 
-  getAllProducts(pageNum: number = 1): Observable<any> {
+  getAllCategories(): Observable<any> {
     return this._HttpClient.get(
-      `https://ecommerce.routemisr.com/api/v1/products?page=${pageNum}`
+      `https://ecommerce.routemisr.com/api/v1/categories`
     );
   }
-
-  getIdProducts(id: string): Observable<any> {
+  getSubCategories(id: string): Observable<any> {
     return this._HttpClient.get(
-      `https://ecommerce.routemisr.com/api/v1/products/${id}`
+      `https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`
     );
   }
 }

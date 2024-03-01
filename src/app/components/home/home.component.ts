@@ -4,6 +4,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Cart } from 'src/app/shared/interface/cart';
 import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { CategoriresService } from 'src/app/shared/services/categorires.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
@@ -12,13 +13,10 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(
-    private _ProductsService: ProductsService,
-    private _CartService: CartService
-  ) {}
+  constructor(private _CategoriresService: CategoriresService) {}
   products: Products[] = [];
   ngOnInit(): void {
-    this._ProductsService.getAllCategories().subscribe({
+    this._CategoriresService.getAllCategories().subscribe({
       next: (response) => {
         this.products = response.data;
         console.log(this.products);
