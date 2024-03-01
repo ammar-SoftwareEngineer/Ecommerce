@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Cart } from 'src/app/shared/interface/cart';
 import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
@@ -11,7 +12,10 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private _ProductsService: ProductsService) {}
+  constructor(
+    private _ProductsService: ProductsService,
+    private _CartService: CartService
+  ) {}
   products: Products[] = [];
   ngOnInit(): void {
     this._ProductsService.getAllCategories().subscribe({

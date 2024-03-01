@@ -10,8 +10,7 @@
             </div>
         </div>
         <div class="row gy-5">
-            <div class="col-lg-3 col-md-4 "
-                *ngFor="let item of products |search:searchTerm | paginate: { id: 'productPaginate', itemsPerPage: pageSize, currentPage:currentPage, totalItems: total }">
+            <div class="col-lg-3 col-md-4 " *ngFor="let item of products.slice(0,16)|search:searchTerm ">
                 <div class="product shadow-sm rounded-4 p-4 ">
                     <div class="icon-wishlist text-end py-3 cursor-pointer">
                         <i class="fa-regular fa-heart fs-4"></i>
@@ -41,14 +40,4 @@
         </div>
     </div>
     <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
-
-
-
 </section>
-
-
-<pagination-controls class="my-pagination text-center rounded-2" id="productPaginate" (pageChange)="pageChanged($event)"
-    (pageBoundsCorrection)="pageChanged($event)" [maxSize]=9 [directionLinks]="true" [autoHide]="true"
-    [responsive]="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination"
-    screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
-</pagination-controls>

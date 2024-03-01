@@ -22,6 +22,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgToastModule } from 'ng-angular-popup';
 import { SearchPipe } from './shared/search.pipe';
+import { ProductshomeComponent } from './components/productshome/productshome.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { SearchPipe } from './shared/search.pipe';
     AuthLayoutComponent,
     BlankLayoutComponent,
     SearchPipe,
+    ProductshomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { SearchPipe } from './shared/search.pipe';
     BrowserAnimationsModule,
     FormsModule,
     NgToastModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

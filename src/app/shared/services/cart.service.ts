@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CartService {
   constructor(private _HttpClient: HttpClient) {}
+
   cartNumber: BehaviorSubject<number> = new BehaviorSubject(0);
 
   headers: any = { token: localStorage.getItem('token') };
@@ -36,6 +37,14 @@ export class CartService {
     return this._HttpClient.put(
       `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
       { count: count },
+      {
+        headers: this.headers,
+      }
+    );
+  }
+  clearCart(): Observable<any> {
+    return this._HttpClient.delete(
+      `https://ecommerce.routemisr.com/api/v1/cart`,
       {
         headers: this.headers,
       }

@@ -1,10 +1,17 @@
-<section class="py-5 ">
+<section class="py-5 " *ngIf="cartDetails">
     <div class="container">
         <div class="content-cart w-75 mx-auto">
-            <div class="title-count d-flex justify-content-between align-items-center mb-3 flex-wrap flex-md-nowrap">
-                <h1>Shop Cart</h1>
-                <span class="text-main fs-4">Total Price {{productCart.totalCartPrice | currency:' EGP'}}</span>
+            <div class="head-cart d-flex justify-content-between align-items-center">
+                <div class="title-count d-flex  mb-3 flex-column">
+                    <h1>Shop Cart</h1>
+                    <span class="text-main fs-4">Total Price {{productCart.totalCartPrice | currency:' EGP'}}</span>
+                </div>
+                <button class="btn btn-outline-success py-3 px-4 fs-6" (click)="deleteAllCart()">
+                    <i class="fa-solid fa-trash-can me-1"></i>
+                    Clear Cart
+                </button>
             </div>
+
             <div class="row p-3 align-items-center mb-3 rounded-3 border border-main shadow-sm"
                 *ngFor="let item of cartDetails">
                 <div class=" col-md-2 mb-3 mb-lg-0">
@@ -40,3 +47,6 @@
     </div>
     <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
 </section>
+<div *ngIf="deleteAllCart()">
+    <h2 class="text-center">{{msg}}</h2>
+</div>
