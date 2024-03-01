@@ -28,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MyhttpInterceptor } from './shared/interceptors/myhttp.interceptor';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
+import { PaymentComponent } from './components/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
     BlankLayoutComponent,
     SearchPipe,
     ProductshomeComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
