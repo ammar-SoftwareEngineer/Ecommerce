@@ -1,1 +1,80 @@
-<p>payment works!</p>
+<section class="mt-4 mx-auto shadow-sm  rounded-3 p-md-5 p-3 py-4 border  border-1 border-main">
+    <h1 class="py-4 text-center fw-semibold">Check Out</h1>
+
+    <form [formGroup]="checkOut" (ngSubmit)="handlCheckOut()">
+
+        <!-- start details -->
+        <div class="mb-4">
+            <label for="details" class="form-label">Details</label>
+            <input #inputDetails formControlName="details" type="text" class="form-control" id="details">
+
+            <!-- error message -->
+            <div class="error-box  "
+                *ngIf="checkOut.get('details')?.errors && (checkOut.get('details')?.touched || inputDetails.value.length>0)">
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('details')?.getError('required')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    Details is Required</p>
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('details')?.getError('email')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    Details in valid</p>
+            </div>
+        </div>
+        <!--end details-->
+
+
+
+        <!-- start Phone-->
+        <div class="mb-4">
+            <label for="phone" class="form-label">Phone</label>
+            <input #inputPhone formControlName="phone" type="tel" class="form-control" id="phone">
+
+
+            <!-- error message -->
+            <div class="error-box "
+                *ngIf="checkOut.get('phone')?.errors && (checkOut.get('phone')?.touched || inputPhone.value.length>0)">
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('phone')?.getError('required')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    Phone is Required</p>
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('phone')?.getError('pattern')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    accept only egypt phone numbers</p>
+            </div>
+        </div>
+        <!-- end phone -->
+
+
+        <!-- start City -->
+        <div class="mb-4">
+            <label for="city" class="form-label">City</label>
+            <input #inputCity formControlName="city" type="text" class="form-control" id="city">
+
+            <!-- error message -->
+            <div class="error-box  "
+                *ngIf="checkOut.get('city')?.errors && (checkOut.get('city')?.touched || inputCity.value.length>0)">
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('city')?.getError('required')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    City is Required</p>
+                <p class="alert alert-danger rounded-3 p-3  mt-3 shadow-sm "
+                    *ngIf="checkOut.get('city')?.getError('email')"><i
+                        class="fa-regular fa-circle-xmark text-danger"></i>
+                    City in valid</p>
+            </div>
+        </div>
+        <!--end city-->
+
+
+        <div class="btn-submit">
+            <button class="btn bg-main text-white"><i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin me-2"></i>
+                Check Out</button>
+        </div>
+
+    </form>
+    <div class="error-msg mt-5 alert alert-danger p-3 rounded-2 text-center " *ngIf="msgError">
+        <span class="fw-medium">{{msgError}}</span>
+    </div>
+</section>

@@ -22,6 +22,7 @@ export class ProductsComponent {
   total: number = 0;
   isLoading: boolean = false;
   products: Products[] = [];
+  wishListData: string[] = [];
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
@@ -34,6 +35,13 @@ export class ProductsComponent {
         console.log(err);
       },
     });
+    this._WishlistService.getWishList().subscribe({
+      next: (response) => {
+        const newData = response.data.map((item: any) => item._id);
+        this.wishListData = newData;
+        console.log(this.wishListData);
+      },
+    });
   }
   addCart(id: string): void {
     this._CartService.AddProductCart(id).subscribe({
@@ -43,7 +51,7 @@ export class ProductsComponent {
           progressAnimation: 'increasing',
         });
         this._CartService.cartNumber.next(response.numOfCartItems);
-        this._WishlistService.WishNumber.next(response.count);
+        this._WishlistService.WishNumber.next(response.data.length);
       },
       error: (err: HttpErrorResponse) => {
         this._ToastrService.error('Error', '', {
@@ -75,7 +83,21 @@ export class ProductsComponent {
         this._ToastrService.success('Add product to WishList', 'Success', {
           progressAnimation: 'increasing',
         });
-        this._WishlistService.WishNumber.next(response.count);
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+      },
+    });
+  }
+  deleteFav(id: string): void {
+    this._WishlistService.removeProductWishList(id).subscribe({
+      next: (response) => {
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+        console.log(this.wishListData);
+        this._ToastrService.success('Remove product to Wishlist', 'Success', {
+          progressAnimation: 'decreasing',
+          timeOut: 600,
+        });
       },
     });
   }

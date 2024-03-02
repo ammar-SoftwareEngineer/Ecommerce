@@ -1,11 +1,13 @@
-<section class="py-5 position-relative">
+<section class="py-5 position-relative" *ngIf="wishListData&&wishListData.length > 0;else msg">
     <div class="container">
         <div class="row gy-5 mt-3">
             <div class="col-lg-3 col-md-4 " *ngFor="let item of products ">
                 <div class="product shadow-sm rounded-4 p-4 ">
                     <div class="icon-wishlist text-end py-3 cursor-pointer">
-                        <i class="fa-regular fa-heart fs-4" (click)="addFav(item._id)"></i>
-                        <i class="fa-solid fa-heart text-danger fs-4" (click)="deleteFav(item._id)"></i>
+                        <i *ngIf="!wishListData.includes(item._id)" class="fa-regular fa-heart fs-4"
+                            (click)="addFav(item._id)"></i>
+                        <i *ngIf="wishListData.includes(item._id)" class="fa-solid fa-heart text-danger fs-4"
+                            (click)="deleteFav(item._id)"></i>
                     </div>
 
                     <div class="child-product" [routerLink]="['/details',item._id]">
@@ -36,3 +38,6 @@
 
 
 </section>
+<ng-template #msg>
+    <h2 class="text-center">Your WishList is Empty</h2>
+</ng-template>

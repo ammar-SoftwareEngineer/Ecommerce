@@ -8,5 +8,6 @@
   color: white;
 }
 .dropdown-menu {
-  width: 20px !important;
+  min-width: 30px;
+  max-width: fit-content;
 }

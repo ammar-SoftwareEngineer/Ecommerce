@@ -18,12 +18,15 @@ export class WishlistComponent implements OnInit {
 
   products: Products[] = [];
   isLoading: boolean = false;
+  wishListData: string[] = [];
   ngOnInit(): void {
     this._WishlistService.getWishList().subscribe({
       next: (response) => {
         console.log(response);
         this.products = response.data;
         this._WishlistService.WishNumber.next(response.count);
+        const newData = response.data.map((item: any) => item._id);
+        this.wishListData = newData;
       },
     });
   }
@@ -50,18 +53,20 @@ export class WishlistComponent implements OnInit {
         this._ToastrService.success('Add product to WishList', 'Success', {
           progressAnimation: 'increasing',
         });
+        this.wishListData = response.data;
+        console.log(this.wishListData);
       },
     });
   }
   deleteFav(id: string): void {
     this._WishlistService.removeProductWishList(id).subscribe({
       next: (response) => {
-        this._WishlistService.getWishList().subscribe({
-          next: (response) => {
-            this.products = response.data;
-            this._WishlistService.WishNumber.next(response.count);
-          },
-        });
+        this.wishListData = response.data;
+        let newDataProducts = this.products.filter((item) =>
+          this.wishListData.includes(item._id)
+        );
+        this.products = newDataProducts;
+        this._WishlistService.WishNumber.next(response.data.length);
         console.log(response);
         this._ToastrService.success('Remove product to Wishlist', 'Success', {
           progressAnimation: 'decreasing',

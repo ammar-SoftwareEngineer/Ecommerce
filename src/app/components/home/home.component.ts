@@ -6,6 +6,7 @@ import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { CategoriresService } from 'src/app/shared/services/categorires.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,12 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private _CategoriresService: CategoriresService) {}
+  constructor(
+    private _CategoriresService: CategoriresService,
+    private _WishlistService: WishlistService
+  ) {}
   products: Products[] = [];
+  wishListData: string[] = [];
   ngOnInit(): void {
     this._CategoriresService.getAllCategories().subscribe({
       next: (response) => {
@@ -23,6 +28,13 @@ export class HomeComponent {
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
+      },
+    });
+    this._WishlistService.getWishList().subscribe({
+      next: (response) => {
+        const newData = response.data.map((item: any) => item._id);
+        this.wishListData = newData;
+        console.log(this.wishListData);
       },
     });
   }

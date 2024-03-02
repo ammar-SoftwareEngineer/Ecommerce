@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/shared/interface/cart';
 import { CartService } from 'src/app/shared/services/cart.service';
-import { NgToastService } from 'ng-angular-popup';
 import { ToastrService } from 'ngx-toastr';
+import { Products } from 'src/app/shared/interface/products';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
     private _CartService: CartService,
     private _ToastrService: ToastrService
   ) {}
+  products: Products[] = [];
   productCart: Cart = {} as Cart;
   cartDetails: Cart[] = [];
   msg: string = 'Your Cart Empty';
@@ -23,7 +24,8 @@ export class CartComponent implements OnInit {
       next: (response) => {
         this.productCart = response.data;
         this.cartDetails = response.data.products;
-        console.log(this.cartDetails);
+        this.products = response.data._id;
+        console.log(this.products);
       },
     });
   }

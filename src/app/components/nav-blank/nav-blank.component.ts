@@ -36,7 +36,7 @@ export class NavBlankComponent implements OnInit {
     });
     this._WishlistService.getWishList().subscribe({
       next: (response) => {
-        this.wishNum = response.count;
+        this.wishNum = response.data.length;
       },
     });
   }

@@ -14,7 +14,7 @@
 
             <div class="row p-3 align-items-center mb-3 rounded-3 border border-main shadow-sm"
                 *ngFor="let item of cartDetails">
-                <div class=" col-md-2 mb-3 mb-lg-0">
+                <div class=" col-md-2 mb-3 mb-lg-0" [routerLink]="['/details',item.product._id]">
                     <img class="w-100" [src]="item.product.imageCover" alt="">
                 </div>
                 <div class=" col-lg-8 col-md-6 pb-md-0 pb-4">
@@ -47,15 +47,18 @@
                     </div>
                 </div>
             </div>
-            <div class="check-out mt-5">
-                <button class="btn-outline-main py-2">
-                    <i class="fa-regular fa-credit-card me-2"></i> Check Out
-                </button>
+            <div class="row shadow-none border border-0 p-0 ">
+                <div class="col-12">
+                    <div class="check-out mt-5">
+                        <button class="btn-outline-main py-2" [routerLink]="['/payment',products]">
+                            <i class="fa-regular fa-credit-card me-2"></i> Payment
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
-    <ng-toast [style]="{width:'300px',padding:'20px'}"></ng-toast>
 
 </section>
 <ng-template #msg>

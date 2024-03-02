@@ -5,6 +5,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { NgToastService } from 'ng-angular-popup';
 import { ToastrService } from 'ngx-toastr';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 @Component({
   selector: 'app-productshome',
   templateUrl: './productshome.component.html',
@@ -14,10 +15,12 @@ export class ProductshomeComponent {
   constructor(
     private _ProductsService: ProductsService,
     private _CartService: CartService,
-    private _ToastrService: ToastrService
+    private _ToastrService: ToastrService,
+    private _WishlistService: WishlistService
   ) {}
 
   products: Products[] = [];
+  wishListData: string[] = [];
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
@@ -26,6 +29,13 @@ export class ProductshomeComponent {
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
+      },
+    });
+    this._WishlistService.getWishList().subscribe({
+      next: (response) => {
+        const newData = response.data.map((item: any) => item._id);
+        this.wishListData = newData;
+        console.log(this.wishListData);
       },
     });
   }
@@ -41,6 +51,32 @@ export class ProductshomeComponent {
       error: (err: HttpErrorResponse) => {
         this._ToastrService.error('Error', '', {
           progressAnimation: 'increasing',
+        });
+      },
+    });
+  }
+  addFav(prodId: string): void {
+    this._WishlistService.addProductsWishlist(prodId).subscribe({
+      next: (response) => {
+        console.log(response);
+        this._ToastrService.success('Add product to WishList', 'Success', {
+          progressAnimation: 'increasing',
+        });
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+        console.log(this.wishListData);
+      },
+    });
+  }
+  deleteFav(id: string): void {
+    this._WishlistService.removeProductWishList(id).subscribe({
+      next: (response) => {
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+        console.log(this.wishListData);
+        this._ToastrService.success('Remove product to Wishlist', 'Success', {
+          progressAnimation: 'decreasing',
+          timeOut: 600,
         });
       },
     });

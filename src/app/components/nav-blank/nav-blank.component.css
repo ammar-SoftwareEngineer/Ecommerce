@@ -16,5 +16,6 @@
   height: 25px;
 }
 .dropdown-menu {
-  width: fit-content;
+  min-width: 40px;
+  max-width: fit-content;
 }

@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  .input-search {
+    width: 75% !important;
+  }
+}
