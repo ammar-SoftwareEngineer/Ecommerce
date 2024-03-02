@@ -14,6 +14,7 @@ import { authGuard } from './shared/guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'wishlist', component: WishlistComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'details/:id', component: DetailsComponent },
       { path: 'categories', component: CategoriesComponent },

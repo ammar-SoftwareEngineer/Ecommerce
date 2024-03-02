@@ -31,6 +31,7 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PaymentComponent,
     ForgetpasswordComponent,
     ResetpasswordComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

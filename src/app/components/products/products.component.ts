@@ -4,6 +4,7 @@ import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { ToastrService } from 'ngx-toastr';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,7 +14,8 @@ export class ProductsComponent {
   constructor(
     private _ProductsService: ProductsService,
     private _CartService: CartService,
-    private _ToastrService: ToastrService
+    private _ToastrService: ToastrService,
+    private _WishlistService: WishlistService
   ) {}
   pageSize: number = 0;
   currentPage: number = 1;
@@ -41,6 +43,7 @@ export class ProductsComponent {
           progressAnimation: 'increasing',
         });
         this._CartService.cartNumber.next(response.numOfCartItems);
+        this._WishlistService.WishNumber.next(response.count);
       },
       error: (err: HttpErrorResponse) => {
         this._ToastrService.error('Error', '', {
@@ -62,6 +65,17 @@ export class ProductsComponent {
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
+      },
+    });
+  }
+  addFav(prodId: string): void {
+    this._WishlistService.addProductsWishlist(prodId).subscribe({
+      next: (response) => {
+        console.log(response);
+        this._ToastrService.success('Add product to WishList', 'Success', {
+          progressAnimation: 'increasing',
+        });
+        this._WishlistService.WishNumber.next(response.count);
       },
     });
   }

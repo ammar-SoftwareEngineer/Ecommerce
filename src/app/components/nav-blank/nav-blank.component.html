@@ -26,6 +26,18 @@
             </ul>
             <ul
                 class="navbar-nav ms-auto mt-4 mt-lg-0 mb-2 mb-lg-0 d-md-flex justify-content-md-center align-items-lg-center gap-lg-3 gap-4 p-0-md p-2">
+                <li class="nav-item shop position-relative cursor-pointer" routerLink="wishlist">
+                    <div
+                        class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle ">
+                        <span class="text-main">
+                            {{wishNum}}
+                        </span>
+                    </div>
+                    <span>
+                        <i class="fa-solid fa-heart text-danger fs-4"></i>
+                    </span>
+
+                </li>
                 <li class="nav-item shop position-relative cursor-pointer" routerLink="cart">
                     <div
                         class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle ">
@@ -34,7 +46,7 @@
                         </span>
                     </div>
                     <span>
-                        <i class="fa-solid fa-cart-shopping fa-2x text-main  "></i>
+                        <i class="fa-solid fa-cart-shopping fa-2x text-main  ms-lg-3"></i>
                     </span>
 
                 </li>
