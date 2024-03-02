@@ -6,6 +6,7 @@ import { Products } from 'src/app/shared/interface/products';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { ToastrService } from 'ngx-toastr';
+import { WishlistService } from 'src/app/shared/services/wishlist.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -16,9 +17,12 @@ export class DetailsComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute,
     private _ProductsService: ProductsService,
     private _CartService: CartService,
-    private _ToastrService: ToastrService
+    private _ToastrService: ToastrService,
+    private _WishlistService: WishlistService
   ) {}
+
   productDetails: Products = {} as Products;
+  wishListData: string[] = [];
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
@@ -34,12 +38,21 @@ export class DetailsComponent implements OnInit {
         });
       },
     });
+    this._WishlistService.getWishList().subscribe({
+      next: (response) => {
+        const newData = response.data.map((item: any) => item._id);
+        this.wishListData = newData;
+        console.log(this.wishListData);
+      },
+    });
   }
 
   addCart(id: string): void {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {
         console.log(response);
+        this._WishlistService.WishNumber.next(response.data.length);
+        this._CartService.cartNumber.next(response.numOfCartItems);
         this._ToastrService.success('Add product to Cart', 'Success', {
           progressAnimation: 'increasing',
         });
@@ -54,7 +67,7 @@ export class DetailsComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: true,
     navSpeed: 700,
@@ -75,4 +88,29 @@ export class DetailsComponent implements OnInit {
     },
     // nav: true,
   };
+  addFav(prodId: string): void {
+    this._WishlistService.addProductsWishlist(prodId).subscribe({
+      next: (response) => {
+        console.log(response);
+        this._ToastrService.success('Add product to WishList', 'Success', {
+          progressAnimation: 'increasing',
+        });
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+      },
+    });
+  }
+  deleteFav(id: string): void {
+    this._WishlistService.removeProductWishList(id).subscribe({
+      next: (response) => {
+        this._WishlistService.WishNumber.next(response.data.length);
+        this.wishListData = response.data;
+        console.log(this.wishListData);
+        this._ToastrService.success('Remove product to Wishlist', 'Success', {
+          progressAnimation: 'decreasing',
+          timeOut: 600,
+        });
+      },
+    });
+  }
 }

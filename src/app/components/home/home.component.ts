@@ -41,7 +41,7 @@ export class HomeComponent {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: true,
     navSpeed: 500,
@@ -68,7 +68,7 @@ export class HomeComponent {
   slideDynamic: OwlOptions = {
     loop: true,
     mouseDrag: false,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: false,
     navSpeed: 500,

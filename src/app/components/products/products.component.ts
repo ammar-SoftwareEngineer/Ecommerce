@@ -46,7 +46,6 @@ export class ProductsComponent {
   addCart(id: string): void {
     this._CartService.AddProductCart(id).subscribe({
       next: (response) => {
-        console.log(response);
         this._ToastrService.success('Add product to Cart', 'Success', {
           progressAnimation: 'increasing',
         });
