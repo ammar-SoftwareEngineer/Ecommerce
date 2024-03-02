@@ -19,8 +19,8 @@
                             (click)="deleteFav(item._id)"></i>
                     </div>
 
-                    <div class="child-product" [routerLink]="['/details',item._id]">
-                        <div class="image-contnet w-75 mx-auto rounded-2">
+                    <div class="child-product">
+                        <div class="image-contnet w-75 mx-auto rounded-2" [routerLink]="['/details',item._id]">
                             <img class="img-fluid " [src]="item.imageCover" [alt]="item.title">
                         </div>
                         <div class="text mt-3">
