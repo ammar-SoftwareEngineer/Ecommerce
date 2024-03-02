@@ -50,8 +50,8 @@ export class ProductsComponent {
         this._ToastrService.success('Add product to Cart', 'Success', {
           progressAnimation: 'increasing',
         });
-        this._CartService.cartNumber.next(response.numOfCartItems);
         this._WishlistService.WishNumber.next(response.data.length);
+        this._CartService.cartNumber.next(response.numOfCartItems);
       },
       error: (err: HttpErrorResponse) => {
         this._ToastrService.error('Error', '', {
