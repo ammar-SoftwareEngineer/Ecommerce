@@ -16,7 +16,12 @@ export class OrdersService {
   }
   getAllOrders(): Observable<any> {
     return this._HttpClient.get(
-      `https://ecommerce.routemisr.com/api/v1/orders/`
+      `https://ecommerce.routemisr.com/api/v1/orders`
+    );
+  }
+  getUserOrders(id: string): Observable<any> {
+    return this._HttpClient.get(
+      `https://ecommerce.routemisr.com/api/v1/orders/user/${id}`
     );
   }
 }

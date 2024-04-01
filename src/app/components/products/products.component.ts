@@ -39,7 +39,6 @@ export class ProductsComponent {
       next: (response) => {
         const newData = response.data.map((item: any) => item._id);
         this.wishListData = newData;
-        console.log(this.wishListData);
       },
     });
   }

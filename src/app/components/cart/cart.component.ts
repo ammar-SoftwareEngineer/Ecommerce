@@ -25,7 +25,6 @@ export class CartComponent implements OnInit {
         this.productCart = response.data;
         this.cartDetails = response.data.products;
         this.products = response.data._id;
-        console.log(this.products);
       },
     });
   }

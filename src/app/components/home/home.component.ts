@@ -24,7 +24,6 @@ export class HomeComponent {
     this._CategoriresService.getAllCategories().subscribe({
       next: (response) => {
         this.products = response.data;
-        console.log(this.products);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
@@ -34,7 +33,6 @@ export class HomeComponent {
       next: (response) => {
         const newData = response.data.map((item: any) => item._id);
         this.wishListData = newData;
-        console.log(this.wishListData);
       },
     });
   }

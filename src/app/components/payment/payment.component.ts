@@ -52,7 +52,6 @@ export class PaymentComponent implements OnInit {
           if (response.status == 'success') {
             window.open(response.session.url);
           }
-          console.log(response);
         },
         error: (err: HttpErrorResponse) => {
           console.log(err);

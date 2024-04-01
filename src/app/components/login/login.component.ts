@@ -38,9 +38,11 @@ export class LoginComponent {
         next: (response) => {
           this.isLoading = false;
           if (response.message == 'success') {
+            localStorage.setItem('email', response.user.email);
             this._Router.navigate(['/home']);
             localStorage.setItem('token', response.token);
           }
+          console.log(response);
         },
         error: (err: HttpErrorResponse) => {
           this.msgError = err.error.message;

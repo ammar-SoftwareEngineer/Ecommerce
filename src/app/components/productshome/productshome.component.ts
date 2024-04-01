@@ -35,7 +35,6 @@ export class ProductshomeComponent {
       next: (response) => {
         const newData = response.data.map((item: any) => item._id);
         this.wishListData = newData;
-        console.log(this.wishListData);
       },
     });
   }
@@ -64,7 +63,6 @@ export class ProductshomeComponent {
         });
         this._WishlistService.WishNumber.next(response.data.length);
         this.wishListData = response.data;
-        console.log(this.wishListData);
       },
     });
   }
@@ -73,7 +71,6 @@ export class ProductshomeComponent {
       next: (response) => {
         this._WishlistService.WishNumber.next(response.data.length);
         this.wishListData = response.data;
-        console.log(this.wishListData);
         this._ToastrService.success('Remove product to Wishlist', 'Success', {
           progressAnimation: 'decreasing',
           timeOut: 600,

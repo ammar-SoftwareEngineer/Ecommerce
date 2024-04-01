@@ -69,7 +69,7 @@ export class RegisterComponent {
           if (response.message == 'success') {
             this._Router.navigate(['/login']);
           }
-          console.log(response);
+          console.log(response.user);
         },
         error: (err: HttpErrorResponse) => {
           this.isLoading = false;

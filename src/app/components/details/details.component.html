@@ -1,39 +1,56 @@
 <section class="py-5">
-    <div class="container">
-        <div class="row gy-5 align-items-center">
-            <div class="col-lg-6">
-                <div class="icon-wishlist text-end py-3 cursor-pointer">
-                    <i *ngIf="!wishListData.includes(productDetails._id)" class="fa-regular fa-heart fs-2"
-                        (click)="addFav(productDetails._id)"></i>
-                    <i *ngIf="wishListData.includes(productDetails._id)" class="fa-solid fa-heart text-danger fs-2"
-                        (click)="deleteFav(productDetails._id)"></i>
-                </div>
-
-                <div class="image w-75 mx-auto rounded-4 shadow-sm p-4">
-                    <owl-carousel-o [options]="customOptions">
-                        <ng-container *ngFor="let img of productDetails.images">
-                            <ng-template carouselSlide>
-                                <img class="img-fluid rounded-2" [src]="img" [alt]="productDetails.title">
-                            </ng-template>
-                        </ng-container>
-                    </owl-carousel-o>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="content-pro">
-                    <h2 class="fw-normal fs-5">{{productDetails.title}}</h2>
-                    <p class=" text-black-50 p-2">{{productDetails.description}}</p>
-                    <span class="fw-medium">{{productDetails.category.name}}</span>
-                </div>
-                <div class="sale-rate mt-3 d-flex justify-content-between fw-medium ">
-                    <p>{{productDetails.price}} EGP</p>
-                    <span><i class="fas fa-star rating-color"></i> {{productDetails.ratingsAverage}}</span>
-                </div>
-                <div class="btn-add mt-3">
-                    <button (click)="addCart(productDetails._id)" class="btn-main w-100">Add To Cart </button>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row gy-5 align-items-center">
+      <div class="col-lg-6">
+        <div class="image w-75 mx-auto rounded-4 shadow-sm p-4">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let img of productDetails.images">
+              <ng-template carouselSlide>
+                <img
+                  class="img-fluid rounded-2"
+                  [src]="img"
+                  [alt]="productDetails.title"
+                />
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="icon-wishlist text-end py-3 cursor-pointer">
+          <i
+            *ngIf="!wishListData.includes(productDetails._id)"
+            class="fa-regular fa-heart fs-2"
+            (click)="addFav(productDetails._id)"
+          ></i>
+          <i
+            *ngIf="wishListData.includes(productDetails._id)"
+            class="fa-solid fa-heart text-danger fs-2"
+            (click)="deleteFav(productDetails._id)"
+          ></i>
+        </div>
+        <div class="content-pro">
+          <h2 class="fw-normal fs-5">{{ productDetails.title }}</h2>
+          <p class="text-black-50 p-2">{{ productDetails.description }}</p>
+          <span class="fw-medium text-main">{{
+            productDetails.category.name
+          }}</span>
+        </div>
+        <div class="sale-rate mt-3 d-flex justify-content-between fw-medium">
+          <p>
+            <strong>{{ productDetails.price }} EGP </strong>
+          </p>
+          <span
+            ><i class="fas fa-star rating-color"></i>
+            {{ productDetails.ratingsAverage }}</span
+          >
+        </div>
+        <div class="btn-add mt-3">
+          <button (click)="addCart(productDetails._id)" class="btn-main w-100">
+            Add To Cart
+          </button>
+        </div>
+      </div>
     </div>
-
+  </div>
 </section>
