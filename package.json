@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@rxweb/reactive-form-validators": "^13.0.1",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
     "jwt-decode": "^4.0.0",

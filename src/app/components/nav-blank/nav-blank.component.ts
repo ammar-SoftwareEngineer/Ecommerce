@@ -43,4 +43,6 @@ export class NavBlankComponent implements OnInit {
   logOutUser(): void {
     this._AuthService.logOut();
   }
+
+  changePassword(): void {}
 }

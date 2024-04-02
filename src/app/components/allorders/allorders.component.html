@@ -1,17 +1,39 @@
 <div class="section py-5">
   <div class="container">
     <div class="row gy-5">
-      <div class="col-lg-4 col-md-6" *ngFor="let item of data">
-        <div class="card" [routerLink]="['/orders', item._id]">
-          <div class="card-body">
-            <img class="img-fluid" src="./assets/images/payment.jpg" alt="" />
-            <div class="payment d-flex justify-content-between mt-4">
-              <p class="card-text">Total Price: {{ item.totalOrderPrice }}</p>
-              <p class="card-text">
-                Payment Type: {{ item.paymentMethodType }}
+      <div class="col-12 col-lg-6" *ngFor="let item of data">
+        <div class="card p-3" [routerLink]="['/orders', item._id]">
+          <div class="card-body d-flex flex-md-row flex-column gap-3">
+            <img
+              class="mx-md-0 mx-auto"
+              src="./assets/images/E-Wallet-pana.svg"
+              alt=""
+            />
+            <div class="content d-flex flex-column">
+              <div class="payment d-flex justify-content-between gap-5">
+                <p class="card-text">
+                  Total : <strong>{{ item.totalOrderPrice }} EGP</strong>
+                </p>
+                <p class="card-text text-main">
+                  Payment :
+                  <span class="fw-semibold text-capitalize">{{
+                    item.paymentMethodType
+                  }}</span>
+                </p>
+              </div>
+              <div class="address">
+                <p class="card-text">
+                  Location: {{ item.shippingAddress.city }}
+                </p>
+                <p class="card-text">
+                  Details: {{ item.shippingAddress.details }}
+                </p>
+                <p class="card-text">Phone: {{ item.shippingAddress.phone }}</p>
+              </div>
+              <p class="card-text mt-3">
+                {{ item.createdAt | slice : 0 : 10 }}
               </p>
             </div>
-            <p class="card-text">{{ item.createdAt | slice : 0 : 10 }}</p>
           </div>
         </div>
       </div>

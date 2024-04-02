@@ -1,43 +1,65 @@
-<section class="py-5 position-relative" *ngIf="wishListData&&wishListData.length > 0;else msg">
-    <div class="container">
-        <div class="row gy-5 mt-3">
-            <div class="col-lg-3 col-md-4 " *ngFor="let item of products ">
-                <div class="product shadow-sm rounded-4 p-4 ">
-                    <div class="icon-wishlist text-end py-3 cursor-pointer">
-                        <i *ngIf="!wishListData.includes(item._id)" class="fa-regular fa-heart fs-4"
-                            (click)="addFav(item._id)"></i>
-                        <i *ngIf="wishListData.includes(item._id)" class="fa-solid fa-heart text-danger fs-4"
-                            (click)="deleteFav(item._id)"></i>
-                    </div>
+<section
+  class="py-5 position-relative"
+  *ngIf="wishListData && wishListData.length > 0; else msg"
+>
+  <div class="container">
+    <div class="row gy-5 mt-3">
+      <div class="col-lg-3 col-md-4" *ngFor="let item of products">
+        <div class="product shadow-sm rounded-4 p-4">
+          <div class="icon-wishlist text-end py-3 cursor-pointer">
+            <i
+              *ngIf="!wishListData.includes(item._id)"
+              class="fa-regular fa-heart fs-4"
+              (click)="addFav(item._id)"
+            ></i>
+            <i
+              *ngIf="wishListData.includes(item._id)"
+              class="fa-solid fa-heart text-danger fs-4"
+              (click)="deleteFav(item._id)"
+            ></i>
+          </div>
 
-                    <div class="child-product">
-                        <div class="image-contnet w-75 mx-auto rounded-2" [routerLink]="['/details',item._id]">
-                            <img class="img-fluid " [src]="item.imageCover" [alt]="item.title">
-                        </div>
-                        <div class="text mt-3">
-                            <h2 class="font-sm fw-normal text-main">{{item.category.name}}</h2>
-                            <span class="fw-medium font-sm">{{item.title.split(' ').slice(0,2).join(' ')}}</span>
-                        </div>
-                        <div class="sale-rate mt-3 d-flex justify-content-between ">
-                            <p>{{item.price}} EGP</p>
-                            <span><i class="fas fa-star rating-color"></i> {{item.ratingsAverage}}</span>
-                        </div>
-
-                    </div>
-                    <div class="btn-add">
-                        <button (click)="addCart(item._id)" class="btn-main w-100"><i *ngIf="isLoading"
-                                class="fa-solid fa-spinner fa-spin me-2"></i> Add To Cart</button>
-                    </div>
-                </div>
-
+          <div class="child-product">
+            <div
+              class="image-contnet w-75 mx-auto rounded-2"
+              [routerLink]="['/details', item._id]"
+            >
+              <img
+                class="img-fluid"
+                [src]="item.imageCover"
+                [alt]="item.title"
+              />
             </div>
+            <div class="text mt-3">
+              <h2 class="font-sm fw-normal text-main">
+                {{ item.category.name }}
+              </h2>
+              <span class="fw-medium font-sm">{{
+                item.title.split(" ").slice(0, 2).join(" ")
+              }}</span>
+            </div>
+            <div class="sale-rate mt-3 d-flex justify-content-between">
+              <p>{{ item.price }} EGP</p>
+              <span
+                ><i class="fas fa-star rating-color"></i>
+                {{ item.ratingsAverage }}</span
+              >
+            </div>
+          </div>
+          <div class="btn-add">
+            <button (click)="addCart(item._id)" class="btn-main w-100">
+              <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin me-2"></i>
+              Add To Cart
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-
-
-
-
+  </div>
 </section>
 <ng-template #msg>
-    <h2 class="text-center">Your WishList is Empty</h2>
+  <h2 class="text-center">Your WishList is Empty</h2>
+  <div class="image w-25 mx-auto">
+    <img class="img-fluid" src="./assets/images/No data-cuate.svg" alt="" />
+  </div>
 </ng-template>

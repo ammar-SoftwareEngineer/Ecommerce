@@ -1,99 +1,171 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
-    <div class="container">
-        <a class="navbar-brand" routerLink="home"><img src="./assets/images/freshcart-logo.svg" alt=""></a>
-        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link p-0-md p-2" routerLink="home" routerLinkActive="active-link">Home</a>
-                </li>
-                <!-- <li class="nav-item">
+  <div class="container">
+    <a class="navbar-brand" routerLink="home"
+      ><img src="./assets/images/freshcart-logo.svg" alt=""
+    /></a>
+    <button
+      class="navbar-toggler shadow-none border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link p-0-md p-2"
+            routerLink="home"
+            routerLinkActive="active-link"
+            >Home</a
+          >
+        </li>
+        <!-- <li class="nav-item">
                     <a class="nav-link p-0-md p-2" routerLink="cart" routerLinkActive="active-link">Cart</a>
                 </li> -->
-                <li class="nav-item">
-                    <a class="nav-link p-0-md p-2" routerLink="products" routerLinkActive="active-link">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-0-md p-2" routerLink="categories" routerLinkActive="active-link">Categories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link p-0-md p-2" routerLink="brands" routerLinkActive="active-link">Brands</a>
-                </li>
-            </ul>
-            <ul
-                class="navbar-nav ms-auto mt-4 mt-lg-0 mb-2 mb-lg-0 d-md-flex justify-content-md-center align-items-lg-center gap-lg-3 gap-4 p-0-md p-2">
-                <li class="nav-item shop position-relative cursor-pointer" routerLink="wishlist">
-                    <div
-                        class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle ">
-                        <span class="text-main">
-                            {{wishNum}}
-                        </span>
-                    </div>
-                    <span>
-                        <i class="fa-solid fa-heart text-danger fs-4"></i>
-                    </span>
+        <li class="nav-item">
+          <a
+            class="nav-link p-0-md p-2"
+            routerLink="products"
+            routerLinkActive="active-link"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link p-0-md p-2"
+            routerLink="categories"
+            routerLinkActive="active-link"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link p-0-md p-2"
+            routerLink="brands"
+            routerLinkActive="active-link"
+            >Brands</a
+          >
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav ms-auto mt-4 mt-lg-0 mb-2 mb-lg-0 d-md-flex justify-content-md-center align-items-lg-center gap-lg-3 gap-4 p-0-md p-2"
+      >
+        <li
+          class="nav-item shop position-relative cursor-pointer"
+          routerLink="wishlist"
+        >
+          <div
+            class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle"
+          >
+            <span class="text-main">
+              {{ wishNum }}
+            </span>
+          </div>
+          <span>
+            <i class="fa-solid fa-heart text-danger fs-4"></i>
+          </span>
+        </li>
+        <li
+          class="nav-item shop position-relative cursor-pointer"
+          routerLink="cart"
+        >
+          <div
+            class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle"
+          >
+            <span class="text-main">
+              {{ cartNum }}
+            </span>
+          </div>
+          <span>
+            <i class="fa-solid fa-cart-shopping fa-2x text-main ms-lg-3"></i>
+          </span>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-expanded="false"
+            ><i class="fa-solid fa-user fs-4 text-success ms-lg-3"></i
+          ></a>
+          <ul class="dropdown-menu py-4">
+            <li class="nav-item sign mb-4">
+              <span
+                class="cursor-pointer p-2"
+                routerLink="/allorders"
+                routerLinkActive="active-link"
+                >My requests</span
+              >
+            </li>
 
-                </li>
-                <li class="nav-item shop position-relative cursor-pointer" routerLink="cart">
-                    <div
-                        class="bg-success-subtle p-1 font-sm rounded-circle d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle ">
-                        <span class="text-main">
-                            {{cartNum}}
-                        </span>
-                    </div>
-                    <span>
-                        <i class="fa-solid fa-cart-shopping fa-2x text-main  ms-lg-3"></i>
-                    </span>
-
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i
-                            class="fa-solid fa-user fs-4 text-success ms-lg-3"></i></a>
-                    <ul class="dropdown-menu text-center">
-                        <li class="nav-item sign">
-                            <span class="cursor-pointer p-2" routerLink="signout" routerLinkActive="active-link"
-                                (click)="logOutUser()">SignOut</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i
-                            class="fa-solid fa-share-nodes fs-4 text-black-50"></i></a>
-                    <ul class="dropdown-menu">
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-instagram"></i>
-                        </li>
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-facebook"></i>
-                        </li>
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-tiktok"></i>
-                        </li>
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-twitter"></i>
-                        </li>
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-linkedin"></i>
-                        </li>
-                        <li
-                            class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2">
-                            <i class="fab fa-youtube"></i>
-                        </li>
-
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
+            <li class="nav-item change mb-4">
+              <span
+                class="cursor-pointer p-2"
+                routerLink="/changepassword"
+                routerLinkActive="active-link"
+                >Change Password</span
+              >
+            </li>
+            <li class="nav-item sign">
+              <span
+                class="cursor-pointer p-2"
+                routerLink="signout"
+                routerLinkActive="active-link"
+                (click)="logOutUser()"
+                >SignOut</span
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-expanded="false"
+            ><i class="fa-solid fa-share-nodes fs-4 text-black-50"></i
+          ></a>
+          <ul class="dropdown-menu">
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-instagram"></i>
+            </li>
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-facebook"></i>
+            </li>
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-tiktok"></i>
+            </li>
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-twitter"></i>
+            </li>
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-linkedin"></i>
+            </li>
+            <li
+              class="nav-item icon d-flex justify-content-center align-items-center text-center rounded-circle p-2"
+            >
+              <i class="fab fa-youtube"></i>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

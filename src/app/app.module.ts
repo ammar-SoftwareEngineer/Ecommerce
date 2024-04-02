@@ -34,6 +34,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +61,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     WishlistComponent,
     AllordersComponent,
     OrdersComponent,
+    ChangepasswordComponent,
   ],
   imports: [
     BrowserModule,

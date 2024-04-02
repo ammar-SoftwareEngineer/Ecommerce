@@ -1,35 +1,38 @@
 <section class="py-5">
   <div class="container">
     <div class="row gy-5">
-      <div class="col-lg-4 col-md-6" *ngFor="let item of data">
+      <div class="col-12 col-lg-4" *ngFor="let item of data">
         <div
-          class="card rounded-4 shadow-sm py-3"
+          class="card rounded-4 shadow-sm py-3 px-3"
           [routerLink]="['/details', item.product._id]"
         >
-          <div class="card-body">
-            <div class="img-card w-75 mx-auto mb-3">
-              <img class="w-100" [src]="item.product.imageCover" alt="" />
-            </div>
-            <div class="title-category d-flex justify-content-between">
-              <p class="card-text">
-                {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
-              </p>
-              <p class="card-text text-main fw-medium">
-                {{ item.product.category.name }}
-              </p>
-            </div>
+          <div class="card-body d-flex gap-5">
+            <img class="" [src]="item.product.imageCover" alt="" />
 
-            <div class="payment d-flex justify-content-between mt-2">
-              <p class="card-text">Total Count: {{ item.count }}</p>
-              <p class="card-text">
-                <strong>{{ item.price * item.count }} EGP</strong>
-              </p>
-            </div>
-            <div class="rate">
-              <span
-                ><i class="fas fa-star me-2 text-warning"></i
-                >{{ item.product.ratingsAverage }}</span
-              >
+            <div
+              class="content w-100 d-flex flex-column justify-content-between"
+            >
+              <div class="title-category">
+                <p class="card-text">
+                  {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+                </p>
+                <p class="card-text text-main fw-medium">
+                  {{ item.product.category.name }}
+                </p>
+              </div>
+
+              <div class="payment mt-2">
+                <p class="card-text">Total Count: {{ item.count }}</p>
+                <p class="card-text">
+                  <strong>{{ item.price * item.count }} EGP</strong>
+                </p>
+              </div>
+              <div class="rate">
+                <span
+                  ><i class="fas fa-star me-2 text-warning"></i
+                  >{{ item.product.ratingsAverage }}</span
+                >
+              </div>
             </div>
           </div>
         </div>

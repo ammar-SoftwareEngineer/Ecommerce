@@ -3,6 +3,7 @@
   height: 35px;
   cursor: pointer;
 }
+
 .icon:hover {
   background-color: var(--main-color);
   color: white;
@@ -11,11 +12,13 @@
 .shop {
   width: fit-content;
 }
+
 .shop div {
   width: 25px;
   height: 25px;
 }
+
 .dropdown-menu {
-  min-width: 40px;
+  min-width: 165px;
   max-width: fit-content;
 }

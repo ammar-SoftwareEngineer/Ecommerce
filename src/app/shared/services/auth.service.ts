@@ -45,4 +45,16 @@ export class AuthService {
       userData
     );
   }
+  changePassword(userData: object): Observable<any> {
+    return this._HttpClient.put(
+      `https://ecommerce.routemisr.com/api/v1/users/changeMyPassword`,
+      userData
+    );
+  }
+  changeUser(userData: object): Observable<any> {
+    return this._HttpClient.put(
+      `https://ecommerce.routemisr.com/api/v1/users/updateMe/`,
+      userData
+    );
+  }
 }

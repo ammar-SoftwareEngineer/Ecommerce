@@ -18,6 +18,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'brands', component: BrandsComponent },
       { path: 'allorders', component: AllordersComponent },
+      { path: 'changepassword', component: ChangepasswordComponent },
       { path: 'orders/:id', component: OrdersComponent },
     ],
   },
