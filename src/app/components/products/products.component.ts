@@ -27,6 +27,7 @@ export class ProductsComponent {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.data;
+        console.log(this.products);
         this.pageSize = response.metadata.limit;
         this.currentPage = response.metadata.currentPage;
         this.total = response.results;
@@ -48,7 +49,6 @@ export class ProductsComponent {
         this._ToastrService.success('Add product to Cart', 'Success', {
           progressAnimation: 'increasing',
         });
-        this._WishlistService.WishNumber.next(response.data.length);
         this._CartService.cartNumber.next(response.numOfCartItems);
       },
       error: (err: HttpErrorResponse) => {

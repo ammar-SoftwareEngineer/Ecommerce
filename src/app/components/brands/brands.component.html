@@ -14,7 +14,10 @@
                 }
         "
       >
-        <div class="card shadow-sm bg-white rounded-3 pb-3">
+        <div
+          class="card shadow-sm bg-white rounded-3 pb-3"
+          [routerLink]="['/detailsbrands', brand._id]"
+        >
           <img
             class="w-100 rounded-top-3"
             [src]="brand.image"

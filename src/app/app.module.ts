@@ -35,6 +35,8 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { DetailsbrandsComponent } from './components/detailsbrands/detailsbrands.component';
+import { DetailscategoriesComponent } from './components/detailscategories/detailscategories.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
     AllordersComponent,
     OrdersComponent,
     ChangepasswordComponent,
+    DetailsbrandsComponent,
+    DetailscategoriesComponent,
   ],
   imports: [
     BrowserModule,

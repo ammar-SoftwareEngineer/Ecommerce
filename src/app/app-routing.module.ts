@@ -19,6 +19,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { DetailsbrandsComponent } from './components/detailsbrands/detailsbrands.component';
+import { DetailscategoriesComponent } from './components/detailscategories/detailscategories.component';
 
 const routes: Routes = [
   {
@@ -34,7 +36,9 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent },
       { path: 'details/:id', component: DetailsComponent },
       { path: 'categories', component: CategoriesComponent },
+      { path: 'detailscategories/:id', component: DetailscategoriesComponent },
       { path: 'brands', component: BrandsComponent },
+      { path: 'detailsbrands/:id', component: DetailsbrandsComponent },
       { path: 'allorders', component: AllordersComponent },
       { path: 'changepassword', component: ChangepasswordComponent },
       { path: 'orders/:id', component: OrdersComponent },
