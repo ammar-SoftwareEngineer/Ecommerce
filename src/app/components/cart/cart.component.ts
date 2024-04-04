@@ -64,8 +64,8 @@ export class CartComponent implements OnInit {
             progressAnimation: 'decreasing',
             timeOut: 1200,
           });
-          this._CartService.cartNumber.next(response.numOfCartItems);
         }
+        this._CartService.cartNumber.next(response.numOfCartItems);
       },
     });
   }
