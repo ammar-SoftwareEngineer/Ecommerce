@@ -20,16 +20,29 @@ export class ProductsComponent {
   pageSize: number = 0;
   currentPage: number = 1;
   total: number = 0;
+  numberOfPages: number = 0;
+  pagesNumber: any[] = [];
   isLoading: boolean = false;
   products: Products[] = [];
+  searchTerm: string = '';
+  productName: any[] = [];
   wishListData: string[] = [];
+
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.data;
-        console.log(this.products);
         this.pageSize = response.metadata.limit;
         this.currentPage = response.metadata.currentPage;
+        this.numberOfPages = response.metadata.numberOfPages;
+        for (let i = 1; i <= this.numberOfPages; i++) {
+          this._ProductsService.getAllProducts(i).subscribe({
+            next: (response) => {
+              this.productName.push(...response.data);
+              this.products = this.productName;
+            },
+          });
+        }
         this.total = response.results;
       },
       error: (err: HttpErrorResponse) => {
@@ -58,8 +71,6 @@ export class ProductsComponent {
       },
     });
   }
-
-  searchTerm: string = '';
 
   pageChanged(event: any): void {
     this._ProductsService.getAllProducts(event).subscribe({
