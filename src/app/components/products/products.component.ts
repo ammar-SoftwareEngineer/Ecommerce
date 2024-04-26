@@ -16,7 +16,7 @@ export class ProductsComponent {
     private _CartService: CartService,
     private _ToastrService: ToastrService,
     private _WishlistService: WishlistService
-  ) {}
+  ) { }
   pageSize: number = 0;
   currentPage: number = 1;
   total: number = 0;
@@ -27,7 +27,6 @@ export class ProductsComponent {
   searchTerm: string = '';
   productName: any[] = [];
   wishListData: string[] = [];
-
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
       next: (response) => {
@@ -39,7 +38,7 @@ export class ProductsComponent {
           this._ProductsService.getAllProducts(i).subscribe({
             next: (response) => {
               this.productName.push(...response.data);
-              this.products = this.productName;
+              this.products=this.productName
             },
           });
         }
